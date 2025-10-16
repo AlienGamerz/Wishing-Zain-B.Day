@@ -1,422 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Wishes</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            background: linear-gradient(135deg, #f0f8ff, #ffefd5);
-            color: #333;
-            padding: 50px;
-            animation: backgroundAnimation 10s infinite alternate;
-            overflow: hidden;
-            perspective: 1000px;
-        }
-        @keyframes backgroundAnimation {
-            from {background: linear-gradient(135deg, #f0f8ff, #ffefd5);}
-            to {background: linear-gradient(135deg, #ffefd5, #f0f8ff);}
-        }
-        .card {
-            background-color: #ffffff;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-            display: inline-block;
-            animation: cardAnimation 2s infinite;
-            transition: transform 0.3s, box-shadow 0.3s;
-            transform-style: preserve-3d;
-        }
-        .card:hover {
-            transform: scale(1.1) rotateY(10deg) rotateX(10deg);
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-        @keyframes cardAnimation {
-            0% {transform: scale(1) rotateY(0) rotateX(0);}
-            50% {transform: scale(1.05) rotateY(5deg) rotateX(5deg);}
-            100% {transform: scale(1) rotateY(0) rotateX(0);}
-        }
-        .card h1 {
-            color: #ff6600;
-            animation: colorChange 3s infinite alternate;
-            text-shadow: 2px 2px #ffab73;
-        }
-        @keyframes colorChange {
-            from {color: #ff6600;}
-            to {color: #ff4500;}
-        }
-        .card p {
-            animation: fadeIn 2s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-        .animated-heart {
-            display: inline-block;
-            margin-top: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            transform: rotate(45deg);
-            position: relative;
-            animation: heartbeat 1s infinite;
-        }
-        .animated-heart:before,
-        .animated-heart:after {
-            content: "";
-            background-color: red;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            position: absolute;
-        }
-        .animated-heart:before {
-            top: -25px;
-            left: 0;
-        }
-        .animated-heart:after {
-            left: 25px;
-            top: 0;
-        }
-        @keyframes heartbeat {
-            0%, 20%, 40%, 60%, 80%, 100% {transform: scale(1);}
-            10%, 30%, 50%, 70%, 90% {transform: scale(1.2);}
-        }
-        .floating-stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: -1;
-        }
-        .floating-star {
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            width: 10px;
-            height: 10px;
-            background: yellow;
-            border-radius: 50%;
-            animation: floatStar 10s linear infinite;
-        }
-        @keyframes floatStar {
-            0% {transform: translateX(0) translateY(0);}
-            100% {transform: translateX(calc(200vw * var(--direction))) translateY(100vh);}
-        }
-        .firework {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: red;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            animation: fireworkAnimation 1s infinite ease-out;
-            pointer-events: none;
-            opacity: 0;
-        }
-        @keyframes fireworkAnimation {
-            0% {transform: scale(0); opacity: 1;}
-            50% {transform: scale(1.5); opacity: 1;}
-            100% {transform: scale(2); opacity: 0;}
-        }
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #ee8843;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #ff4500;
-        }
-        .greeting-message {
-            display: none;
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #007bff;
-            animation: fadeIn 2s ease-in-out;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday Hamza 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: #0f172a; /* deep navy */
+      --bg2: #061826; /* tealish */
+      --accent: #ff6b81; /* pink */
+      --accent2: #ffd166; /* warm yellow */
+      --glass: rgba(255,255,255,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,107,129,0.08), transparent),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(255,209,102,0.06), transparent),
+                  linear-gradient(160deg,var(--bg1), var(--bg2));
+      color: #fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      display:flex;align-items:center;justify-content:center;padding:36px;
+    }
+
+    .card{
+      width:100%;max-width:980px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:20px;padding:40px;border:1px solid rgba(255,255,255,0.06);backdrop-filter: blur(6px);
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      position:relative;overflow:hidden;
+    }
+
+    /* decorative floating circles */
+    .card::before, .card::after{
+      content:'';position:absolute;border-radius:50%;opacity:0.12;pointer-events:none;
+    }
+    .card::before{width:360px;height:360px;right:-120px;top:-120px;background:linear-gradient(135deg,var(--accent),transparent)}
+    .card::after{width:220px;height:220px;left:-80px;bottom:-80px;background:linear-gradient(135deg,var(--accent2),transparent)}
+
+    .hero{display:flex;gap:28px;align-items:center}
+    .left{flex:1}
+    .right{flex:1;display:flex;align-items:center;justify-content:center}
+
+    h1{font-size:clamp(28px,6vw,64px);line-height:0.95;margin:0 0 8px;font-weight:900;letter-spacing:-1px}
+    p.lead{margin:0 0 20px;color:rgba(255,255,255,0.85);font-weight:500}
+
+    .cake{
+      width:220px;height:220px;border-radius:28px;background:linear-gradient(180deg,#fff9,#fff2);display:flex;flex-direction:column;align-items:center;justify-content:center;
+      transform:rotate(-6deg);box-shadow:0 12px 30px rgba(0,0,0,0.35);border:1px solid rgba(0,0,0,0.12);
+    }
+    .cake .icing{width:160px;height:80px;background:linear-gradient(180deg,var(--accent),#ff9fb0);border-radius:14px 14px 6px 6px;box-shadow:inset 0 -6px 12px rgba(0,0,0,0.08)}
+    .cake .candles{margin-top:10px;display:flex;gap:8px}
+    .candle{width:8px;height:28px;background:linear-gradient(180deg,#fff,#ffe);border-radius:3px;position:relative}
+    .candle::after{content:'';position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 40% 30%, #fff, #ffd166 40%, transparent 70%)}
+
+    .btn{
+      appearance:none;border:0;padding:14px 22px;border-radius:14px;font-weight:700;cursor:pointer;display:inline-flex;gap:10px;align-items:center;
+      background:linear-gradient(90deg,var(--accent),#ff9fb0);color:#111;font-size:16px;box-shadow:0 8px 24px rgba(255,107,129,0.14);transition:transform .15s ease,box-shadow .15s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+
+    /* hearts container sits on top */
+    .hearts-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+
+    .footer{margin-top:22px;color:rgba(255,255,255,0.7);font-size:14px}
+
+    /* heart styles */
+    .heart{
+      position:absolute;left:50%;top:50%;transform:translate(-50%, -50%) scale(0.6);
+      font-size:22px;will-change:transform,opacity;pointer-events:none;filter:drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+      animation:floatUp linear forwards;
+    }
+
+    @keyframes floatUp{
+      0%{opacity:0;transform:translate(var(--dx,0),0) scale(var(--s,1)) rotate(var(--r,0));}
+      10%{opacity:1}
+      100%{opacity:0;transform:translate(calc(var(--dx,0) + var(--tx,0px)), -120vh) scale(var(--s,1.1)) rotate(calc(var(--r,0) + 360deg));}
+    }
+
+    /* responsive tweaks */
+    @media (max-width:720px){
+      .hero{flex-direction:column}
+      .cake{width:180px;height:180px}
+    }
+
+  </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Best Wishes!</h1>
-        <p>Dear <b><i><h2>Zain</i></b></h2></p>
-        <p>Wishing you all the best for your future endeavors. May your days be filled with joy, success, and prosperity.</p>
-        <p>Warm regards,</p>
-        <p><b><i><h2>Muhammd Hamza Sabir</h2></i></b></p>
-        <div class="animated-heart"></div>
-        <button class="button" onclick="showMessage()">Click for a Surprise</button>
-        <div class="greeting-message" id="greetingMessage">Surprise! You are amazing and wonderful!</div>
+  <div class="card">
+    <div class="hero">
+      <div class="left">
+        <h1>Happy Birthday, <span style="background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;">Hamza</span> 🎉</h1>
+        <p class="lead">es webpage ko bannane kiliye 2 din lage hai apke total 2000 ruppe hote hai.</p>
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="btn" id="loveBtn" aria-label="Send hearts">
+            ❤️ Send Hearts
+          </button>
+          <button class="btn" id="surpriseBtn" style="background:linear-gradient(90deg,var(--accent2),#ffd88f);">🎂 Surprise</button>
+        </div>
+        <div class="footer">Made by zain — Enjoy, </div>
+      </div>
+
+      <div class="right">
+        <div class="cake" aria-hidden>
+          <div style="position:absolute;top:18px;display:flex;gap:6px;">
+            <div class="candle"></div><div class="candle"></div><div class="candle"></div>
+          </div>
+          <div class="icing"></div>
+        </div>
+      </div>
     </div>
-    <div class="floating-stars">
-        <div class="floating-star" style="--direction: -1;"></div>
-        <div class="floating-star" style="--direction: 1;"></div>
-        <div class="floating-star" style="--direction: 0.5;"></div>
-        <div class="floating-star" style="--direction: -0.5;"></div>
-        <div class="floating-star" style="--direction: 1.5;"></div>
-    </div>
 
-    <script>
-        function showMessage() {
-            const message = document.getElementById('greetingMessage');
-            message.style.display = 'block';
-            setTimeout(() => {
-                message.style.display = 'none';
-            }, 3000);
+    <div class="hearts-layer" id="heartsLayer"></div>
+  </div>
 
-            createParticles();
-        }
+  <script>
+    const btn = document.getElementById('loveBtn');
+    const heartsLayer = document.getElementById('heartsLayer');
+    const surprise = document.getElementById('surpriseBtn');
 
-        function createFirework() {
-            const firework = document.createElement('div');
-            firework.className = 'firework';
-            document.body.appendChild(firework);
+    function makeHeart(x, y){
+      const el = document.createElement('div');
+      el.className = 'heart';
+      // choose a heart emoji variety
+      const hearts = ['❤','💖','💘','💝','💗','💕'];
+      el.textContent = hearts[Math.floor(Math.random()*hearts.length)];
 
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight;
+      // random size and direction
+      const size = (Math.random()*18)+14; // 14 - 32 px font-size
+      el.style.fontSize = size + 'px';
+      const dx = (Math.random()*160 - 80) + 'px'; // horizontal offset start
+      const tx = (Math.random()*420 - 210) + 'px'; // total horizontal travel
+      const rot = (Math.random()*60 - 30) + 'deg';
+      const duration = (Math.random()*2.4 + 2.6).toFixed(2) + 's';
+      const left = x + (Math.random()*40 - 20);
+      const top = y + (Math.random()*40 - 20);
 
-            firework.style.left = `${x}px`;
-            firework.style.top = `${y}px`;
+      el.style.left = left + 'px';
+      el.style.top = top + 'px';
+      el.style.setProperty('--s', (Math.random()*0.6 + 0.8).toFixed(2));
+      el.style.setProperty('--dx', dx);
+      el.style.setProperty('--tx', tx + '');
+      el.style.setProperty('--r', rot);
+      el.style.animationDuration = duration;
 
-            setTimeout(() => {
-                firework.remove();
-            }, 1000);
-        }
+      heartsLayer.appendChild(el);
 
-        setInterval(createFirework, 1000);
+      // remove after animation
+      setTimeout(()=>{
+        el.remove();
+      }, (parseFloat(duration)*1000) + 400);
+    }
 
-        function createParticles() {
-            for (let i = 0; i < 30; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'floating-star';
-                document.body.appendChild(particle);
+    // click handler: spawn burst of hearts from button center
+    btn.addEventListener('click', (e)=>{
+      const rect = heartsLayer.getBoundingClientRect();
+      const bx = e.clientX - rect.left;
+      const by = e.clientY - rect.top;
+      // spawn multiple hearts
+      for(let i=0;i<18;i++){
+        // stagger timeout to make it feel alive
+        setTimeout(()=>makeHeart(bx + (Math.random()*40-20), by + (Math.random()*30-15)), i*40);
+      }
+    });
 
-                const size = Math.random() * 20 + 5;
-                const duration = Math.random() * 2 + 1;
-                const x = Math.random() * window.innerWidth;
-                const y = Math.random() * window.innerHeight;
-                const delay = Math.random() * 0.5;
+    // surprise button: quick confetti + heart rain
+    surprise.addEventListener('click', ()=>{
+      const rect = heartsLayer.getBoundingClientRect();
+      const cx = rect.width/2;
+      const cy = rect.height/2;
+      // lots of hearts
+      for(let i=0;i<120;i++){
+        setTimeout(()=>{
+          makeHeart(Math.random()*rect.width, Math.random()*rect.height);
+        }, i*10);
+      }
+      // small flash effect on cake (temporary)
+      const cake = document.querySelector('.cake');
+      cake.animate([{filter:'brightness(1.5)'},{filter:'brightness(1)'}],{duration:900,easing:'ease-out'});
+    });
 
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${x}px`;
-                particle.style.top = `${y}px`;
-                particle.style.animationDuration = `${duration}s`;
-                particle.style.animationDelay = `${delay}s`;
+    // accessibility: allow keyboard activation
+    btn.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') btn.click(); });
+    surprise.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') surprise.click(); });
 
-                setTimeout(() => {
-                    particle.remove();
-                }, (duration + delay) * 1000);
-            }
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            background: linear-gradient(135deg, #f0f8ff, #ffefd5);
-            color: #333;
-            padding: 50px;
-            animation: backgroundAnimation 10s infinite alternate;
-            overflow: hidden;
-            perspective: 1000px;
-        }
-        @keyframes backgroundAnimation {
-            from {background: linear-gradient(135deg, #f0f8ff, #ffefd5);}
-            to {background: linear-gradient(135deg, #ffefd5, #f0f8ff);}
-        }
-        .card {
-            background-color: #ffffff;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-            display: inline-block;
-            animation: cardAnimation 2s infinite;
-            transition: transform 0.3s, box-shadow 0.3s;
-            transform-style: preserve-3d;
-        }
-        .card:hover {
-            transform: scale(1.1) rotateY(10deg) rotateX(10deg);
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-        @keyframes cardAnimation {
-            0% {transform: scale(1) rotateY(0) rotateX(0);}
-            50% {transform: scale(1.05) rotateY(5deg) rotateX(5deg);}
-            100% {transform: scale(1) rotateY(0) rotateX(0);}
-        }
-        .card h1 {
-            color: #ff6600;
-            animation: colorChange 3s infinite alternate;
-            text-shadow: 2px 2px #ffab73;
-        }
-        @keyframes colorChange {
-            from {color: #ff6600;}
-            to {color: #ff4500;}
-        }
-        .card p {
-            animation: fadeIn 2s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-        .animated-heart {
-            display: inline-block;
-            margin-top: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            transform: rotate(45deg);
-            position: relative;
-            animation: heartbeat 1s infinite;
-        }
-        .animated-heart:before,
-        .animated-heart:after {
-            content: "";
-            background-color: red;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            position: absolute;
-        }
-        .animated-heart:before {
-            top: -25px;
-            left: 0;
-        }
-        .animated-heart:after {
-            left: 25px;
-            top: 0;
-        }
-        @keyframes heartbeat {
-            0%, 20%, 40%, 60%, 80%, 100% {transform: scale(1);}
-            10%, 30%, 50%, 70%, 90% {transform: scale(1.2);}
-        }
-        .floating-stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: -1;
-        }
-        .floating-star {
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            width: 10px;
-            height: 10px;
-            background: yellow;
-            border-radius: 50%;
-            animation: floatStar 10s linear infinite;
-        }
-        @keyframes floatStar {
-            0% {transform: translateX(0) translateY(0);}
-            100% {transform: translateX(calc(200vw * var(--direction))) translateY(100vh);}
-        }
-        .firework {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: red;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            animation: fireworkAnimation 1s infinite ease-out;
-            pointer-events: none;
-            opacity: 0;
-        }
-        @keyframes fireworkAnimation {
-            0% {transform: scale(0); opacity: 1;}
-            50% {transform: scale(1.5); opacity: 1;}
-            100% {transform: scale(2); opacity: 0;}
-        }
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #ff6600;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #ff4500;
-        }
-        .greeting-message {
-            display: none;
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #007bff;
-            animation: fadeIn 2s ease-in-out;
-        }
-        .person {
-            margin-top: 20px;
-            width: 100px;
-            height: 200px;
-            position: relative;
-            background-color: #ffcc99;
-            border-radius: 50% 50% 0 0;
-            overflow: hidden;
-        }
-        .person::before,
-        .person::after {
-            content: '';
-            position: absolute;
-            background-color: #ffcc99;
-        }
-        .person::before {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            top: -30px;
-            left: 20px;
-        }
-        .person::after {
-            width: 10px;
-            height: 30px;
-            top: 60px;
-            left: 45px;
-            border-radius: 0 0 10px 10px;
-        }
-        .person .eye {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #000;
-            border-radius: 50%;
-            top: 10px;
-        }
-        .person .eye.left {
-            left: 30px;
-        }
-        .person .eye.right {
-            right: 30px;
-        }
-        .person .mouth {
-            position: absolute;
-            width: 40px;
-            height: 20px;
-            background-color: #ff6666;
-            border-radius: 0 0 40px 40px;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    </style>
-    
+    // small gentle floating background hearts occasionally
+    setInterval(()=>{
+      const rect = heartsLayer.getBoundingClientRect();
+      makeHeart(Math.random()*rect.width, rect.height - 30);
+    }, 2700);
+
+    // on resize ensure layer covers area (it already does via CSS but position calculations use getBoundingClientRect)
+    window.addEventListener('resize', ()=>{});
+  </script>
 </body>
-</html>
+</html
